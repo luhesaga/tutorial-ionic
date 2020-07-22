@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <img src="img/Ionic_Logo.svg.png" alt="logo ionic" class="logo">
+            <p>Contenido</p>
+            <ul>
+                <li><a href="#1">Instalación de Ionic y templates basicos</a></li>
+                <li><a href="#2">Instalación de Capacitor y uso en Android Studio</a></li>
+                <li><a href="#3">Componentes Basicos de Ionic</a></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </aside>
+        <section>
+            
+            <h1>Tutorial Ionic 4</h1>
+            
+            <p>Ionic es un framework para el desarrollo de aplicaciones híbridas. Con Ionic podemos construir aplicaciones para móviles Android, iOS, así como PWA y aplicaciones de escritorio, con una única base de código, aprovechando tus conocimientos de HTML, CSS y Javascript.</p>
+            <p>En este tutorial se explicara el desarrollo de Platzi Music una aplicación de música en la que aprendes todas las funcionalidades de Ionic y cómo trabajarlo desde cero, sólamente con bases de Angular, esta aplicación tiene la capacidad de buscar artistas, mostrarte favoritos, reproducir fragmentos canciones reales directo del API de Spotify, además, crear tu perfil implementando acceso a la cámara con capacitor e igualmente generar una vista sport que trackea tu recorrido y te permite reproducir música desde ahí accediendo al GPS.</p>
+
+            <p><em>Este tutorial esta basado en el curso de Platzi, el cual puedes ver <a href="https://platzi.com/clases/ionic-avanzado/" target="_blank">acá</a>, suscribete y nunca pares de aprender.</em></p>
+
+            <h2 id="1">instalación de Ionic y templates basicos</h2>
+
+            <h3>Instalación</h3>
+
+            <p>Para utilizar Ionic debemos tener instalado Node.js version 10 o superior, lo podemos descargar de <a href="https://nodejs.org/es/" target="_blank">acá</a></p>
+            <p>una vez instalado podemos verificar su correcta instalacion, tecleando en consola <code>node -v</code></p>
+            <p>con la instalación de Node se nos instala el manejador de paquetes NPM, podemos verificarlo en consola con <code> npm -v</code></p>
+            <p>ya tenemos todo listo para instalar Ionic, lo hacemos con el siguiente comando en consola:</p>
+            <p><code>npm install -g @ionic/cli</code></p>
+            <p>verificamos la correcta instalacion con el comando <code>ionic -v</code></p>
+            <p>ya tenemos todo listo, manos a la obra!</p>
+
+            <h3>Crear nuestra app</h3>
+            <p>Es importante primero crear una carpeta en nuestro equipo donde se almacenara la aplicacion y ubicarse alli en consola</p>
+            <p>para crear una app usamos el comando <code>ionic start</code></p>
+            <p>luego el CLI de Ionic nos preguntara que framework queremos utilizar, para el desarrollo de este tutorial usaremos angular.</p>
+            <img src="img/img1.png" alt="framework">
+            <p>luego nos preguntara por el nombre de la app</p>
+            <img src="img/img2.png" alt="">
+            <p>Luego nos pedira que escojamos el template que queremos usar, Ionic nos ofrece interesantes opciones para no arrancar de cero, te invito a que pruebes cada una de los templates y asi puedas saber cual se adapta mejor cuando quieras crear tu propio proyecto, para efectos de este tutorial se escoge el template Blank.</p>
+            <img src="img/img3.png" alt="">
+            <p>por ultimo nos preguntara si queremos instalar Capacitor a lo que reponderemos que si. Nuestra aplicacion esta creada!</p>
+            <p>una vez terminado el proceso, veremos que se creo una carpeta con el nombre de nuestro proyecto, al entrar a ella vemos que se generaron varios archivos, mas adelante se explicra todo, por ahora en consola entra al directorio creado y ejecuta <code>ionic serve</code>.</p>
+            <img src="img/img4.png" alt="">
+            <p>con el comando <code>ionic serve</code>, ionic nos crea un servidor local y nos abrira en el navegador el resultado de nuestra aplicacion, por ahora solo nos muestra lo siguiente:</p>
+            <img src="img/img5.png" alt="">
+            <img src="img/img6.png" alt="">
+
+            <h2 id="2">instalación de Capacitor y uso en Android Studio</h2>
+            
+            <h3>¿Que es Capacitor?</h3>
+
+            <p>Capacitor es el puente de Ionic hacia lo nativo. Con capacitor podemos acceder desde las tecnologías de desarrollo web y Javascript a los recursos nativos de los dispositivos, permitiendo una comunicación sencilla y la utilización de todas las características necesarias para realizar aplicaciones asombrosas, consiguiendo un elevado rendimiento.  
+
+            Gracias a Capacitor es muy sencillo acceder al SDK nativo de cada plataforma, con una interfaz de desarrollo unificada y optimizada para su uso con el framework Ionic. Capacitor es potente, sencillo y extensible vía plugins creados por el propio equipo de Ionic y la enorme comunidad de este framework. </p>
+
+            <h3>Instalación</h3>
+
+            <p>Si en la creacion del proyecto no instalaste Capacitor cuando te lo pregunto Ionic, puedes instalarlo con el comando:</p> <p><code>npm install --save @capacitor/core @capacitor/cli --save-exact</code></p>
+
+            <p>verificamos la correcta instalación con <code>npx cap --version</code></p>
+
+            <p>Luego debemos iniciarlo, lo hacemos con el comando <code>npx cap init</code></p>
+
+            <h3>Agregar Plataformas</h3>
+
+            <p>Podemos agregar las plataformas con las que queramos desarrollar nuestra app, ya sea Android o IOS, pero primero debemos ejecutar el comando <code>ionic build</code>, para que ionic nos cree la carpeta <em>www</em> en nuestro proyecto, esta carpeta es utilizada por Capacitor para emular nuestra app en la plataforma nativa.</p>
+
+            <p>Ahora agregamos la plataforma con el comando <code>npx cap add android</code> o <code>npx cap add ios</code> segun la plataforma que deseemos agregar.</p>
+
+            <p>veremos que se creo una carpeta con el nombre de la plataforma en nuestro proyecto, para el desarrollo de este tutorial se trabajara con android, ya que carezco de un equipo mac para emular IOS (maldita pobreza! 😥).</p>
+
+            <p>para poder emular nuestra app en modo nativo, es importante que tengas instalado el SDK correspondiente a la plataforma, ya sea  <a href="https://developer.android.com/studio" target="_blank">Android Studio</a> o <a href="https://developer.apple.com/xcode/" target="_blank">Xcode</a> para IOS.</p>
+
+            <p>al ejecutar el comando <code>npx cap open android</code> o <code>npx cap open ios</code> se nos abrira el SDK correspondiente, y podremos ver el resultado de nuestra app en el emulador nativo de la plataforma.</p>
+
+            <h3>Sincronizar progreso con emuladores</h3>
+
+            <p>Cada vez que queramos probar nuestra app en los navegadores debemos hacer un <em>build</em> de nuestra app con <code>ionic build</code> y luego uno de los siguientes comandos segun corresponda:</p>
+
+            <p><code>npx cap sync</code> agrega el contenido nuevo de la carpeta <em>www</em> al android studio o emuladores. </p>
+            <p><code>npx cap update</code> Agrega todo el contenido de la carpeta <em>www</em></p>
+            <p><code>npx cap copy</code> Si solo modificaste archivos HTML o CSS, se ejecuta mucho más rapido que las anteriores.</p>
+
+            <p>Si ya tenias abierto el SDK, solo hay que dar play en los botones de Android studio o XCode, sino correr nuevamente el comando <code>npx cap open plataforma</code></p>
+
+            <p>debemos seguir este flujo cada vez que queramos probar nuestra app, como vemos gracias a capacitor es muy sencillo el proceso.</p> 
+            
+            <h2 id="3">Componentes Basicos de Ionic</h2>
+
+            <h3>El componente Slides</h3>
+
+        </section>
+    </div>
+    <footer>
+        <p>Luis Hernando Sarmiento</p>
+    </footer>
+   
+</body>
+</html>
